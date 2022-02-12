@@ -1,0 +1,473 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=GB2312">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./modulation.files/filelist.xml">
+<link rel=Edit-Time-Data href="./modulation.files/editdata.mso">
+<link rel=OLE-Object-Data href="./modulation.files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>业余通信常用调制方式的通信原理简述</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Radio7</o:Author>
+  <o:LastAuthor>Radio7</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>56</o:TotalTime>
+  <o:Created>2003-04-05T01:33:00Z</o:Created>
+  <o:LastSaved>2003-04-05T01:33:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>134</o:Words>
+  <o:Characters>768</o:Characters>
+  <o:Company>RadioLab</o:Company>
+  <o:Lines>6</o:Lines>
+  <o:Paragraphs>1</o:Paragraphs>
+  <o:CharactersWithSpaces>943</o:CharactersWithSpaces>
+  <o:Version>9.2812</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:PunctuationKerning/>
+  <w:DrawingGridVerticalSpacing>7.8 磅</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery>
+  <w:Compatibility>
+   <w:SpaceForUL/>
+   <w:BalanceSingleByteDoubleByteWidth/>
+   <w:DoNotLeaveBackslashAlone/>
+   <w:ULTrailSpace/>
+   <w:DoNotExpandShiftReturn/>
+   <w:AdjustLineHeightInTable/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:SimSun;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:华文新魏;
+	panose-1:2 1 8 0 4 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:1 135200768 16 0 262144 0;}
+@font-face
+	{font-family:"\@华文新魏";
+	panose-1:2 1 8 0 4 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:1 135200768 16 0 262144 0;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	mso-pagination:none;
+	font-size:10.5pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:宋体;
+	mso-font-kerning:1.0pt;}
+ /* Page Definitions */
+@page
+	{mso-page-border-surround-header:no;
+	mso-page-border-surround-footer:no;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:42.55pt;
+	mso-footer-margin:49.6pt;
+	mso-paper-source:0;
+	layout-grid:15.6pt;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:650519705;
+	mso-list-type:hybrid;
+	mso-list-template-ids:532698342 335579318 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-text:%1、;
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=ZH-CN style='tab-interval:21.0pt;text-justify-trim:punctuation' bgcolor="f4feff">
+<div class=Section1 style='layout-grid:15.6pt'>
+
+<p class=MsoNormal style='text-indent:70.0pt;mso-char-indent-count:5.0;
+mso-char-indent-size:14.0pt'><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:华文新魏;mso-ascii-font-family:"Times New Roman"'>业余通信常用调制方式的通信原理简述</span><span
+lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:12.0pt;mso-fareast-font-family:
+华文新魏'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US>1、<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><![endif]><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>信号的时域和频域表示</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>信号的强度随时间变化的关系为信号的时域表示；信号的强度随频率变化的关系为信号</span></p>
+
+<p class=MsoNormal><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>的频域表示。两种表示方法是有一定的对应关系的。</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US>2、<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><![endif]><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>双边带调幅（</span><span lang=EN-US>AM</span><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>）</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>设</span><span
+lang=EN-US><sub><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+ o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+ stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:24pt;
+ height:15.75pt' o:ole="">
+ <v:imagedata src="./modulation.files/image001.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=32 height=21
+src="./modulation.files/image002.gif" v:shapes="_x0000_i1025"><![endif]></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1025"
+  DrawAspect="Content" ObjectID="_1111040362">
+ </o:OLEObject>
+</xml><![endif]--></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>为要发送出去的语音信号，</span><span
+lang=EN-US><sub><!--[if gte vml 1]><v:shape id="_x0000_i1026" type="#_x0000_t75"
+ style='width:15pt;height:18pt' o:ole="">
+ <v:imagedata src="./modulation.files/image003.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=20 height=24
+src="./modulation.files/image004.gif" v:shapes="_x0000_i1026"><![endif]></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1026"
+  DrawAspect="Content" ObjectID="_1111040363">
+ </o:OLEObject>
+</xml><![endif]--></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>为外加的直流分量，</span><span
+lang=EN-US><sub><!--[if gte vml 1]><v:shape id="_x0000_i1027" type="#_x0000_t75"
+ style='width:66.75pt;height:18pt' o:ole="">
+ <v:imagedata src="./modulation.files/image005.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=89 height=24
+src="./modulation.files/image006.gif" v:shapes="_x0000_i1027"><![endif]></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1027"
+  DrawAspect="Content" ObjectID="_1111040364">
+ </o:OLEObject>
+</xml><![endif]--></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>为载波信号（载</span></p>
+
+<p class=MsoNormal><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>波信号通常为高频信号，也就是通常所说的发射或接收无线电波的频率）。则信号</span><span
+lang=EN-US><sub><!--[if gte vml 1]><v:shape id="_x0000_i1028" type="#_x0000_t75"
+ style='width:165.75pt;height:18pt' o:ole="">
+ <v:imagedata src="./modulation.files/image007.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=221 height=24
+src="./modulation.files/image008.gif" v:shapes="_x0000_i1028"><![endif]></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1028"
+  DrawAspect="Content" ObjectID="_1111040365">
+ </o:OLEObject>
+</xml><![endif]--></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>就是调幅信号的时域表示。它的频域形式如下图。</span></p>
+
+<p class=MsoNormal><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>　　在频域中，包含完全对称的两部分信号以及载波分量，其中完全对称的两部分信号使占用带宽为</span><span
+lang=EN-US><sub><!--[if gte vml 1]><v:shape id="_x0000_i1029" type="#_x0000_t75"
+ style='width:23.25pt;height:15.75pt' o:ole="">
+ <v:imagedata src="./modulation.files/image009.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=31 height=21
+src="./modulation.files/image010.gif" v:shapes="_x0000_i1029"><![endif]></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1029"
+  DrawAspect="Content" ObjectID="_1111040366">
+ </o:OLEObject>
+</xml><![endif]--></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>，带宽中的一半是多余的；载波分量并不携带任何信息，却占据了大部分功率，这部分功率是白白浪费掉的。</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US>3、<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><![endif]><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>单边带</span><span lang=EN-US>(SSB)</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>调幅信号在频域中在发送信号时在频域中想办法去掉载波分量，可以大大提高发射的效</span></p>
+
+<p class=MsoNormal><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>率；把对称的信号去掉其中一部分，可以把带宽减小为原来的一半。这种调制方式称为单边带调制。如果保留频率较高的一部分边带，称为上边带</span><span
+lang=EN-US>(USB)</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>；如果保留频率较低的一部分边带，则称为下边带</span><span
+lang=EN-US>(LSB)</span><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>。单边带调制所带来的代价是造成接收电路复杂，因而接收机比较昂贵。</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]><span lang=EN-US>4、<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><![endif]><span
+style='font-family:宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:
+"Times New Roman"'>调频（</span><span lang=EN-US>FM</span><span style='font-family:
+宋体;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>）</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-family:宋体;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman"'>调频方式通过改变载波信号的频率来传递有用的信息。考虑待调信号为</span><span
+lang=EN-US><sub><!--[if gte vml 1]><v:shape id="_x0000_i1039" type="#_x0000_t75"
+ style='width:56.25pt;height:18pt' o:ole="">
+ <v:imagedata src="./modulation.files/image011.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=75 height=24
+src="./modulation.files/image012.gif" v:shapes="_x0000_i1039"><![endif]></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1039"
+  DrawAspect="Content" ObjectID="_1111040367">
+ </o:OLEObject>
+</xml><![endif]--></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>的简</span></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1031" style='position:absolute;
+ left:0;text-align:left;flip:y;z-index:6' from="234pt,210.6pt" to="234pt,226.2pt">
+ <v:stroke endarrow="block"/>
+</v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:5;left:0px;margin-left:306px;margin-top:280px;width:14px;
+height:24px'><img width=14 height=24 src="./modulation.files/image013.gif"
+v:shapes="_x0000_s1031"></span><![endif]><!--[if gte vml 1]><v:line id="_x0000_s1029"
+ style='position:absolute;left:0;text-align:left;flip:y;z-index:4' from="162pt,210.6pt"
+ to="162pt,226.2pt">
+ <v:stroke endarrow="block"/>
+</v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:3;left:0px;margin-left:210px;margin-top:280px;width:14px;
+height:24px'><img width=14 height=24 src="./modulation.files/image014.gif"
+v:shapes="_x0000_s1029"></span><![endif]><!--[if gte vml 1]><v:line id="_x0000_s1028"
+ style='position:absolute;left:0;text-align:left;flip:y;z-index:3' from="108pt,163.8pt"
+ to="108pt,226.2pt">
+ <v:stroke endarrow="block"/>
+</v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:2;left:0px;margin-left:138px;margin-top:217px;width:14px;
+height:87px'><img width=14 height=87 src="./modulation.files/image015.gif"
+v:shapes="_x0000_s1028"></span><![endif]><!--[if gte vml 1]><v:line id="_x0000_s1034"
+ style='position:absolute;left:0;text-align:left;z-index:9' from="162pt,335.4pt"
+ to="162pt,351pt">
+ <v:stroke endarrow="block"/>
+</v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:8;left:0px;margin-left:210px;margin-top:446px;width:14px;
+height:25px'><img width=14 height=25 src="./modulation.files/image016.gif"
+v:shapes="_x0000_s1034"></span><![endif]><!--[if gte vml 1]><v:line id="_x0000_s1036"
+ style='position:absolute;left:0;text-align:left;flip:y;z-index:11' from="234pt,319.8pt"
+ to="234pt,335.4pt">
+ <v:stroke endarrow="block"/>
+</v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:10;left:0px;margin-left:306px;margin-top:425px;width:14px;
+height:24px'><img width=14 height=24 src="./modulation.files/image017.gif"
+v:shapes="_x0000_s1036"></span><![endif]><!--[if gte vml 1]><v:line id="_x0000_s1035"
+ style='position:absolute;left:0;text-align:left;flip:y;z-index:10' from="198pt,296.4pt"
+ to="198pt,335.4pt">
+ <v:stroke endarrow="block"/>
+</v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:9;left:0px;margin-left:258px;margin-top:394px;width:14px;
+height:55px'><img width=14 height=55 src="./modulation.files/image018.gif"
+v:shapes="_x0000_s1035"></span><![endif]><!--[if gte vml 1]><v:line id="_x0000_s1033"
+ style='position:absolute;left:0;text-align:left;flip:y;z-index:8' from="108pt,273pt"
+ to="108pt,335.4pt">
+ <v:stroke endarrow="block"/>
+</v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:7;left:0px;margin-left:138px;margin-top:363px;width:14px;
+height:86px'><img width=14 height=86 src="./modulation.files/image019.gif"
+v:shapes="_x0000_s1033"></span><![endif]><!--[if gte vml 1]><v:line id="_x0000_s1032"
+ style='position:absolute;left:0;text-align:left;z-index:7' from="63pt,335.4pt"
+ to="315pt,335.4pt">
+ <v:stroke endarrow="block"/>
+</v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:6;left:0px;margin-left:83px;margin-top:441px;width:339px;
+height:14px'><img width=339 height=14 src="./modulation.files/image020.gif"
+v:shapes="_x0000_s1032"></span><![endif]><!--[if gte vml 1]><v:line id="_x0000_s1030"
+ style='position:absolute;left:0;text-align:left;flip:y;z-index:5' from="198pt,179.4pt"
+ to="198pt,226.2pt">
+ <v:stroke endarrow="block"/>
+</v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:4;left:0px;margin-left:258px;margin-top:238px;width:14px;
+height:66px'><img width=14 height=66 src="./modulation.files/image021.gif"
+v:shapes="_x0000_s1030"></span><![endif]><!--[if gte vml 1]><v:line id="_x0000_s1027"
+ style='position:absolute;left:0;text-align:left;z-index:2' from="63pt,226.2pt"
+ to="306pt,226.2pt">
+ <v:stroke endarrow="block"/>
+</v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:1;left:0px;margin-left:83px;margin-top:296px;width:327px;
+height:14px'><img width=327 height=14 src="./modulation.files/image022.gif"
+v:shapes="_x0000_s1027"></span><![endif]><!--[if gte vml 1]><v:shapetype id="_x0000_t202"
+ coordsize="21600,21600" o:spt="202" path="m0,0l0,21600,21600,21600,21600,0xe">
+ <v:stroke joinstyle="miter"/>
+ <v:path gradientshapeok="t" o:connecttype="rect"/>
+</v:shapetype><v:shape id="_x0000_s1026" type="#_x0000_t202" style='position:absolute;
+ left:0;text-align:left;margin-left:17.85pt;margin-top:148.2pt;width:369pt;
+ height:218.4pt;z-index:1' filled="f" stroked="f"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:absolute;z-index:0;left:0px;margin-left:
+24px;margin-top:198px;width:494px;height:293px'>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=494 height=293 align=left valign=top style='vertical-align:top'><![endif]><![if !mso]><span
+  style='position:absolute;left:0pt;z-index:1'>
+  <table cellpadding=0 cellspacing=0 width="100%">
+   <tr>
+    <td><![endif]>
+    <div v:shape="_x0000_s1026" style='padding:3.6pt 7.2pt 3.6pt 7.2pt'
+    class=shape>
+    <p class=MsoNormal><span lang=EN-US><span style="mso-spacerun:
+    yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span><sub><!--[if gte vml 1]><v:shape id="_x0000_i1040" type="#_x0000_t75"
+     style='width:23.25pt;height:17.25pt' o:ole="">
+     <v:imagedata src="./modulation.files/image023.wmz" o:title=""/>
+    </v:shape><![endif]--><![if !vml]><img width=31 height=23
+    src="./modulation.files/image024.gif" v:shapes="_x0000_i1040"><![endif]></sub><!--[if gte mso 9]><xml>
+     <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1040"
+      DrawAspect="Content" ObjectID="_1111040368">
+     </o:OLEObject>
+    </xml><![endif]--></span></p>
+    <p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+    <p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+    <p class=MsoNormal style='text-indent:10.0cm'><span lang=EN-US><sub><!--[if gte vml 1]><v:shape
+     id="_x0000_i1041" type="#_x0000_t75" style='width:12pt;height:15.75pt'
+     o:ole="">
+     <v:imagedata src="./modulation.files/image025.wmz" o:title=""/>
+    </v:shape><![endif]--><![if !vml]><img width=16 height=21
+    src="./modulation.files/image026.gif" v:shapes="_x0000_i1041"><![endif]></sub><!--[if gte mso 9]><xml>
+     <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1041"
+      DrawAspect="Content" ObjectID="_1111040369">
+     </o:OLEObject>
+    </xml><![endif]--></span></p>
+    <p class=MsoNormal style='text-indent:10.0cm'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+    <p class=MsoNormal><span lang=EN-US><span style="mso-spacerun:
+    yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span><sub><!--[if gte vml 1]><v:shape id="_x0000_i1042" type="#_x0000_t75"
+     style='width:32.25pt;height:18pt' o:ole="">
+     <v:imagedata src="./modulation.files/image027.wmz" o:title=""/>
+    </v:shape><![endif]--><![if !vml]><img width=43 height=24
+    src="./modulation.files/image028.gif" v:shapes="_x0000_i1042"><![endif]></sub><!--[if gte mso 9]><xml>
+     <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1042"
+      DrawAspect="Content" ObjectID="_1111040370">
+     </o:OLEObject>
+    </xml><![endif]--></span></p>
+    <p class=MsoNormal style='text-indent:10.0cm'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+    <p class=MsoNormal style='text-indent:10.0cm'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+    <p class=MsoNormal style='text-indent:10.0cm'><span lang=EN-US><sub><!--[if gte vml 1]><v:shape
+     id="_x0000_i1043" type="#_x0000_t75" style='width:12pt;height:15.75pt'
+     o:ole="">
+     <v:imagedata src="./modulation.files/image025.wmz" o:title=""/>
+    </v:shape><![endif]--><![if !vml]><img width=16 height=21
+    src="./modulation.files/image029.gif" v:shapes="_x0000_i1043"><![endif]></sub><!--[if gte mso 9]><xml>
+     <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1043"
+      DrawAspect="Content" ObjectID="_1111040371">
+     </o:OLEObject>
+    </xml><![endif]--></span></p>
+    </div>
+    <![if !mso]></td>
+   </tr>
+  </table>
+  </span><![endif]><![if !mso & !vml]>&nbsp;<![endif]><![if !vml]></td>
+ </tr>
+</table>
+
+</span><![endif]><span style='font-family:宋体;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>单情况，频率信号的时域表示为</span><span lang=EN-US><sub><!--[if gte vml 1]><v:shape
+ id="_x0000_i1044" type="#_x0000_t75" style='width:185.25pt;height:18pt' o:ole="">
+ <v:imagedata src="./modulation.files/image030.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=247 height=24
+src="./modulation.files/image031.gif" v:shapes="_x0000_i1044"><![endif]></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1044"
+  DrawAspect="Content" ObjectID="_1111040372">
+ </o:OLEObject>
+</xml><![endif]--></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>。其中</span><span
+lang=EN-US><sub><!--[if gte vml 1]><v:shape id="_x0000_i1045" type="#_x0000_t75"
+ style='width:24.75pt;height:17.25pt' o:ole="">
+ <v:imagedata src="./modulation.files/image032.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=33 height=23
+src="./modulation.files/image033.gif" v:shapes="_x0000_i1045"><![endif]></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1045"
+  DrawAspect="Content" ObjectID="_1111040373">
+ </o:OLEObject>
+</xml><![endif]--></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>称为频偏常数，</span><span
+lang=EN-US><sub><!--[if gte vml 1]><v:shape id="_x0000_i1046" type="#_x0000_t75"
+ style='width:45.75pt;height:18pt' o:ole="">
+ <v:imagedata src="./modulation.files/image034.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=61 height=24
+src="./modulation.files/image035.gif" v:shapes="_x0000_i1046"><![endif]></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1046"
+  DrawAspect="Content" ObjectID="_1111040374">
+ </o:OLEObject>
+</xml><![endif]--></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>称为最大角频率偏移。根据调制后载波瞬时相位偏移的大小，可以将调频调制为分宽带和窄带两种。通常认为</span><span
+lang=EN-US><sub><!--[if gte vml 1]><v:shape id="_x0000_i1047" type="#_x0000_t75"
+ style='width:77.25pt;height:30.75pt' o:ole="">
+ <v:imagedata src="./modulation.files/image036.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=103 height=41
+src="./modulation.files/image037.gif" v:shapes="_x0000_i1047"><![endif]></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1047"
+  DrawAspect="Content" ObjectID="_1111040375">
+ </o:OLEObject>
+</xml><![endif]--></span><span style='font-family:宋体;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>为窄带频频，不满足上式的为宽带调频。在业余通信中使用的是窄带调频，广播中使用的是宽带调频。窄带调频的频谱与调幅信号的类似，所不同的是它的频谱的上下边频是反相的。窄带调频所占用带宽与调幅一样。调频信号与调幅信号相比，其抗干扰能力较强。</span></p>
+
+</div>
+
+</body>
+
+</html>

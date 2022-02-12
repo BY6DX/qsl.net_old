@@ -1,0 +1,472 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=GB2312">
+<link rel=Edit-Time-Data href="./皮鞋文章6.files/editdata.mso">
+<title>“皮鞋”简易QRPp电报收发机安装与改进</title>
+<style><!--
+.Normal
+	{text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Times New Roman";}
+-->
+</style>
+</head>
+<body lang=ZH-CN link=blue vlink=purple class="Normal" bgcolor="f4feff">
+<div style='layout-grid:15.6pt'> 
+  <h3 align=center style='text-align:center'><span style='font-family:宋体;
+&quot;Times New Roman&quot;'><font face="黑体" size="4"><b>“皮鞋”简易微功率电报收发机安装与改进</b></font></span></h3>
+  <p align=center style='text-align:center'><span
+style='font-size:14.0pt;font-family:宋体;"Times New Roman";"Times New Roman"'>荣新华</span><span
+style='font-size:14.0pt;'> <span lang=EN-US>BD6CR</span></span></p>
+  <p><span style='font-family:宋体;
+&quot;Times New Roman&quot;'><font face="楷体_GB2312">今年五月，我收到了一位素未谋面的高中生写给我的信。他在信中说到：“你能否向我提供</font></span><font face="楷体_GB2312"><span
+lang=EN-US>1-2</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>种适合初学者的入门收发信机的电原理图及印板电路图。现在，一台成品机价格太高，我无法承受，只有想法组装，但找不到图纸。能否给我提供一份（包括所需器件清单）？”他的感受与我曾经的感受是非常类似的，于是我开始在网络上寻找国外的一些制作，一种叫</span><span
+lang=EN-US>PIXIE 2</span><span style='font-family:宋体;"Times New Roman";"Times New Roman"'>（</span><span
+lang=EN-US>BD5HAG</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>把它音译成“皮鞋”，英文原意是小精灵、小仙子）的机器吸引了我，它非常简单，只是两个</span><span
+lang=EN-US>2N3904</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>小功率三极管和一个普通的</span><span lang=EN-US>LM386</span><span
+style='font-family:宋体;"Times New Roman"'>功放集成电路，却很巧妙的构成了直变式收信机和</span><span lang=EN-US>200mW</span><span
+style='font-family:宋体;"Times New Roman"'>发信机。虽然对初学者来说，这个机器并不适合作为日常通信，只能用来勉强收听远程信号和作本地通信实验，但可以很好地锻炼动手能力和获得成功的快乐。</span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>我首先在万用板上搭了一个电路，用手头的仪器做了简单的测试，它已经基本正常地工作在</span><span
+lang=EN-US>80</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>米波段。然后我在</span><span lang=EN-US>chinaham-equipment@hellocq.net</span><span
+style='font-family:宋体;"Times New Roman"'>邮件列表上发布了我的一系列实验结果（包括改频到</span><span lang=EN-US>40</span><span
+style='font-family:宋体;"Times New Roman"'>米波段和其它波段的尝试），同时着手用</span><span lang=EN-US>Protel</span><span
+style='font-family:宋体;"Times New Roman"'>软件绘制电路板。我用定做的电路板焊装了两个，结果却产生了严重的自激，可有一位朋友却安装成功了。我向邮件列表上的朋友们请教，消除了自激，又获得</span><span
+lang=EN-US>BG6EC</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>的帮助，用他实验室的高级仪器做了一些测试。我把所有的结果都总结成了一个主页</span><span
+lang=EN-US><a href="http://mail.ustc.edu.cn/~rong/pixie/">http://mail.ustc.edu.cn/~rong/pixie/</a></span><span
+style='font-family:宋体;"Times New Roman"'>，希望能给安装这个板子的朋友提供必要的帮助和参考。而后大概有几十块板子在国内一些爱好者那里安装调试，反馈了一些信息，我要特别感谢山东的朋友，他们在国内首次使用“皮鞋”机成功地完成了威海到济南</span><span
+lang=EN-US>500</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>公里的双向远程通信，给我不少的鼓励。我也用自己安装的</span><span
+lang=EN-US>40</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>米波段“皮鞋”听了一些</span><span lang=EN-US>QSO</span><span
+style='font-family:宋体;"Times New Roman"'>并做了有限的改进，有了一些心得，一并写出来奉献给刚入门的爱好者朋友。</span></font></p>
+  <p><font face="楷体_GB2312"><b><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>基本指标</span></b></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>电源：</span><span
+lang=EN-US>7V-12V</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>（推荐</span><span lang=EN-US>9V</span><span
+style='font-family:宋体;"Times New Roman"'>叠层电池）</span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>电路板：</span><span
+lang=EN-US>56mm x 41 mm</span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>天线：</span><span
+lang=EN-US>50</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>欧姆，不平衡式，</span><span lang=EN-US>BNC/Q9</span><span
+style='font-family:宋体;"Times New Roman"'>接口</span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>本振泄漏：约</span><span
+lang=EN-US>1mW</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>（</span><span lang=EN-US>50</span><span
+style='font-family:宋体;"Times New Roman"'>欧姆假负载上）</span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>频率范围：</span><span
+lang=EN-US>7.060-7.064MHz</span><span style='font-family:宋体;"Times New Roman";"Times New Roman"'>（</span><span
+lang=EN-US>7.060M</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>晶体上串联</span><span lang=EN-US>50p</span><span
+style='font-family:宋体;"Times New Roman"'>微调电容）</span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>接收：</span></font></p>
+  <p><font face="楷体_GB2312"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:宋体;"Times New Roman"'>电流：小于</span><span lang=EN-US>10mA</span><span
+style='font-family:宋体;"Times New Roman"'>（</span><span lang=EN-US>9V</span><span style='font-family:
+宋体;&quot;Times New Roman&quot;'>供电时）</span></font></p>
+  <p><font face="楷体_GB2312"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:宋体;"Times New Roman"'>耳机：低阻耳机（推荐</span><span lang=EN-US>SONY</span><span
+style='font-family:宋体;"Times New Roman"'>、</span><span lang=EN-US>aiwa</span><span style='font-family:
+宋体;&quot;Times New Roman&quot;'>等高灵敏</span><span
+lang=EN-US>Walkman</span><span style='font-family:宋体;"Times New Roman";"Times New Roman"'>耳机）</span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>发射：</span></font></p>
+  <p><font face="楷体_GB2312"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:宋体;"Times New Roman"'>功率：约</span><span lang=EN-US>200mW</span></font></p>
+  <p><font face="楷体_GB2312"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:宋体;"Times New Roman"'>电流：约</span><span lang=EN-US>50mA</span><span
+style='font-family:宋体;"Times New Roman"'>（</span><span lang=EN-US>9V</span><span style='font-family:
+宋体;&quot;Times New Roman&quot;'>供电时）</span></font></p>
+  <p><font face="楷体_GB2312"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:宋体;"Times New Roman"'>杂散（谐波）抑制：</span><span lang=EN-US>-20dB</span></font></p>
+  <p><font face="楷体_GB2312"><b><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>主观评价</span></b></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>接收灵敏度和选择性较差，容易受广播干扰（</span><span
+lang=EN-US>BCI</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>）。频率稳定度好，听</span><span lang=EN-US>SSB</span><span
+style='font-family:宋体;"Times New Roman"'>信号可懂度高。电路底噪小。收发切换时开关声大，容易导致发错电码。</span></font></p>
+  <p><font face="楷体_GB2312"><b><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>电路简介</span></b></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+'>见图<span lang=EN-US>1，Q1与周围元件构成了典型的考毕兹振荡器并且一直保持振荡（故在接收时有1mW左右振荡信号泄漏），信号通过82pF电容直接耦合到Q2，在发射状态下（电键按下），Q2作为C类功放，放大后的信号经0.01uF电容耦合到π型低通滤波器，然后送天线发射；在接收状态下（电键放开），Q1与周围元件构成差拍振荡器（BFO），Q2被偏置在非线性区（可以这么想，三极管无非就是背对背接着的两个二极管嘛！），将天线接收的信号与BFO的信号进行混频，混频得到的音频信号经过0.1uF电容耦合送到LM386构成的音频功率放大器，放大后的音频信号在LM386的5脚经10uF电容隔直后送耳机。电键不但控制LM386电源的通断，也切换Q2的偏置，使之工作在不同的状态下。</span></span></font></p>
+  <p> <font face="楷体_GB2312"><span style='position:
+relative;z-index:0;left:-12px;top:0px;width:580px;height:380px'><img width=580
+height=380 src="file:///E|/net/image/pixie1.gif" v:shapes="_x0000_s1036"></span> 
+    <span
+lang=EN-US style='font-family:宋体;'> &nbsp; </span></font></p>
+  <font face="楷体_GB2312"><br clear=ALL>
+  </font> 
+  <p align=center style='text-align:center'><font face="楷体_GB2312"><span
+style='font-family:宋体;'>图<span lang=EN-US>1 “皮鞋”200mW微功率等幅电报收发信机电原理图</span></span></font></p>
+  <p><font face="楷体_GB2312"><b><span style='font-family:宋体;'>元件选择</span></b></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+'>所有电感选择色环电感，其中<span lang=EN-US>L3在80米波段时使用2.2uH。C6和C7在80米波段时使用820pF。三极管Q1和Q2并没有严格的规定，放大倍数在100到200之间的硅NPN三极管都能正常使用，比如，9011，9013，9018，8050，2N2222A，2N3904等，推荐Q1和Q2都使用9013或都使用2N3904。晶体需是基频晶体，7.060M和7.042M晶体在天路达有售。建议在电路板上晶体和L3、C6、C7处使用插座，以便切换波段或频率。如为了增大发射功率，可以使用12V电源，但需将C10增加到100u左右。</span></span></font></p>
+  <p><font face="楷体_GB2312"><b><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>调试方法</span></b></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+'>焊接结束应检查是否存在短路，若无，加上<span lang=EN-US>9V叠层电池，接上耳机，不要接天线，正常情况下应该听到微小的“沙沙”声，接上天线噪音增加或者可以听到一些信号，整机电流在10mA以下。若听到很大的啸叫声或电流过大，说明电路自激，解决办法是在“SPEAKER”两端接一个103瓷片电容，若无效，再在LM386电源滤波的10uF电容两端并接一个103瓷片电容，若仍无效，在9V电源输入端并接一个103瓷片电容。至此接收应基本正常。</span></span></font></p>
+  <table cellpadding=0 cellspacing=0 align=left>
+    <tr> 
+      <td width=108 height=0 class="Normal"></td>
+    </tr>
+    <tr> 
+      <td class="Normal"></td>
+      <td class="Normal"><font face="楷体_GB2312"><img width=360 height=120 src="file:///E|/net/image/pixie2.gif" v:shapes="_x0000_s1035" border="0"></font></td>
+    </tr>
+  </table>
+  <font face="楷体_GB2312"><span lang=EN-US style='font-family:宋体;'> &nbsp; </span> 
+  <br clear=ALL>
+  </font> 
+  <p align=center style='text-align:center;'><font face="楷体_GB2312"><span
+style='font-family:宋体;'>图<span lang=EN-US>2 带1W 50欧姆假负载的高频功率表电路原理图</span></span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+'>然后接上带假负载的高频功率表（图<span lang=EN-US>2给出了参考电路图），短接“KEY”两端，耳机中应迅速无声，高频功率表有一定输出。发射状态下整机电流为40-100mA。发射时在旁边0.5米处放一个短波/中波收音机，检查所有的接收频率范围，除了载频和倍频外，应听不到其它由“皮鞋”产生的信号。如有其它信号（特别是啸叫声），说明存在高频自激。割开Q1和Q2之间的电源线，用100uH电感和100欧姆电阻并联后再串联进去，可有效消除高频自激。附表给出了发射和接收状态下各主要元件的直流参考电压。</span></span></font></p>
+  <p><font face="楷体_GB2312"><b><span
+style='font-family:宋体;'>表：<span lang=EN-US>Q1、Q2、U1各引脚在发射与接收状态下的直流参考电压（单位：V）</span></span></b></font></p>
+  <table border=1 cellspacing=0 cellpadding=0>
+    <tr> 
+      <td width=38 valign=top class="Normal">&nbsp; </td>
+      <td width=114 colspan=3 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>Q1(9013)</span></font></p>
+      </td>
+      <td width=114 colspan=3 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>Q2(9013)</span></font></p>
+      </td>
+      <td width=303 colspan=8 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>U1(LM386)</span></font></p>
+      </td>
+    </tr>
+    <tr> 
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>PIN</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>e</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>b</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>c</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>e</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>b</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>c</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>1</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>2</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>3</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>4</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>5</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>6</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>7</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>8</span></font></p>
+      </td>
+    </tr>
+    <tr> 
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>RX</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>4.0</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>2.2</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>9.0</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>9.1</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>9.1</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>9.0</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>1.3</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>0</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>0</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>0</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>2.5</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>4.9</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>2.5</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>1.3</span></font></p>
+      </td>
+    </tr>
+    <tr> 
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>TX</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>3.2</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>2.3</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>7.4</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>0</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>0</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>7.4</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>-</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>-</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>-</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>-</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>-</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>0.6</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>-</span></font></p>
+      </td>
+      <td width=38 valign=top class="Normal"> 
+        <p align=center style='text-align:center'><font face="楷体_GB2312"><span lang=EN-US
+  style='font-family:宋体;'>-</span></font></p>
+      </td>
+    </tr>
+  </table>
+  <p><font face="楷体_GB2312"><b><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>外壳选择与安装</span></b></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>美观的金属外壳不仅能为“皮鞋”增色不少，而且可以有效屏蔽附近的干扰。可选择外壳有很多，比如，金属罐头、铝饭盒、医用长形铝盒等。在选择盒子的时候要注意尽量方便开启，因为电池用完了需要更换，另外，更换频率时需要改插不同的晶体，当然也可以把晶体的插座引到外壳上。</span></font></p>
+  <p><font face="楷体_GB2312"><b><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>改进实践与建议</span></b></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>我的改进主要是两个方面，我觉得都比较实用。第一个是把“皮鞋”原设计中的晶体振荡器通过串联一个</span><span
+lang=EN-US>50p</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>微调电容改成了可变晶体振荡器（</span><span
+lang=EN-US>VXO</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>），频率范围大概可以有</span><span lang=EN-US>4kHz</span><span
+style='font-family:宋体;"Times New Roman"'>，其中约</span><span lang=EN-US>3kHz</span><span
+style='font-family:宋体;"Times New Roman"'>范围较容易进行</span><span lang=EN-US>SSB</span><span
+style='font-family:宋体;"Times New Roman"'>信号的微调。如果再串入电感可增加可调范围，不过会不太容易进行</span><span lang=EN-US>SSB</span><span
+style='font-family:宋体;"Times New Roman"'>信号的微调。第二个是用直流蜂鸣器增加了简单的侧音功能。这个想法来自于</span><span lang=EN-US>JA9MAT</span><span
+style='font-family:宋体;"Times New Roman"'>的主页，他做了类似的改进，但是经过我的实验发现电键的引线很容易引进交流干扰。因为电键只有在发射的时候才使用，所以干脆在接收的时候用一个开关断开它，这样做还获得了额外的好处，就是收发开关声没有了，而且也容易把增加的侧音电路与原来的电路在接收时彻底隔离，以免影响混频管的工作点，降低接收灵敏度，不过这个改进就丧失了全插入的功能，只能手动进行收发切换，好在不算麻烦。</span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>另外一个有用的改进可能是增加一个前端滤波器，主要用来防止广播干扰。见到的方法有两种，一种是对多个特定广播干扰频率使用多级陷波器，另外一种是用</span><span
+lang=EN-US>1/4</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>波长同轴电缆传输线作为带通滤波，方法是在天线接头上接一个</span><span
+lang=EN-US>T</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>型同轴连接器，一头还是接原来的天线，另外一头接</span><span
+lang=EN-US>1/4</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>波长长度的同轴电缆，该电缆的另外一端的内芯与外面屏蔽层短接，这个方法对消除临近频率的干扰效果不明显，但对与工作频率相差大的的广播干扰消除效果比较明显。另外，如果有很强的中波广播干扰，在接天线时串联一个</span><span
+lang=EN-US>1000pF</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>左右的电容，可以减轻干扰。做这个改进之前要考虑到目前系统的整体增益，如本来听起来声音就不大，则不必作此改进。只有在原有系统整体增益足够而且深受广播干扰侵扰时才有必要做此几种尝试。</span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>其它的改进还有做接收频率微调（</span><span
+lang=EN-US>RIT</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>），音频窄带滤波等。简单的</span><span lang=EN-US>RIT</span><span
+style='font-family:宋体;"Times New Roman"'>实现是在原来的晶体上串联一个小电容（如</span><span lang=EN-US>60p</span><span
+style='font-family:宋体;"Times New Roman"'>）还是串联一个大电容（如</span><span lang=EN-US>0.01u</span><span
+style='font-family:宋体;"Times New Roman"'>），手动切换或自动切换均可实现。有一个火腿的</span><span lang=EN-US>RIT</span><span
+style='font-family:宋体;"Times New Roman"'>电路非常有趣，他使用两个等容量的可调电容，一个作为接收用，一个作为发射用，用一个开关手动选择，他的使用方法是当接收用可调电容调到一个电台后，切换到发射用可调电容，也跟踪调到该电台频率左右，这样通过切换这两个电容就很方便地实现范围很大的</span><span
+lang=EN-US>RIT</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>了。音频窄带滤波一般是用运算放大器做，不过效果可能并不理想。一位美国火腿对我说，让耳朵来做音频滤波吧，想想这确实是一个最经济的“解决方案”。</span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>另外，把低通滤波器中的电感改用磁环绕制可减小损耗，提高发射功率，同时对减轻广播干扰也有一些好处。我使用的是</span><span
+lang=EN-US>7x3x3</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>的</span><span lang=EN-US>NXO-20</span><span
+style='font-family:宋体;"Times New Roman"'>小磁环，用直径为</span><span lang=EN-US>0.51</span><span
+style='font-family:宋体;"Times New Roman"'>的漆包线绕了约</span><span lang=EN-US>15</span><span
+style='font-family:宋体;"Times New Roman"'>圈，确实提高了发射功率，不过减轻干扰方面没有觉察到变化。</span></font></p>
+  <p><font face="楷体_GB2312"><b><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>使用建议</span></b></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>架设一根</span><span
+lang=EN-US>1/2</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>波长水平偶极天线或者至少拉一根</span><span
+lang=EN-US>10</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>米长的长线天线（天线应尽量远离干扰源，如日光灯、计算机显示器、开关电源等设备，尽可能用同轴电缆作为馈线以减小可能的本地干扰），使用高灵敏的</span><span
+lang=EN-US>Walkman</span><span style='font-family:宋体;"Times New Roman";"Times New Roman"'>耳机，尽可能选择广播干扰小的早晨（特别是周末和节假日的早晨）或深夜收听，仔细微调可调电容，获得</span><span
+lang=EN-US>SSB</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>信号和</span><span lang=EN-US>CW</span><span
+style='font-family:宋体;"Times New Roman"'>信号的最好收听效果（音调）。</span></font></p>
+  <p><font face="楷体_GB2312"><b><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>总结</span></b></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>“皮鞋”是一个成功率高、成本低廉的制作项目，如果你还没有焊过东西，那就先用“皮鞋”来试试。如果你是个经验丰富的</span><span
+lang=EN-US>QRPer</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>，“皮鞋”可以给你一个新的挑战，试试看，你能不能用它来做远程的</span><span
+lang=EN-US>QSO</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>？对于那些没有经济实力购买商品机的学生火腿，只要有足够的耐心和毅力，这也可作为最最基本的入门接收设备。</span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>我体会到自制设备的乐趣在于：以最小的投入获得最大的产出，通过不断努力的改进设备，获得技术方面的提高。</span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>在制作和测试“皮鞋”的过程中，我得到了许多朋友的鼓励与帮助，他们是</span><span
+lang=EN-US>BG5HAB</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>、</span><span lang=EN-US>VR2KW</span><span
+style='font-family:宋体;"Times New Roman"'>、</span><span lang=EN-US>BA1HAM</span><span
+style='font-family:宋体;"Times New Roman"'>、</span><span lang=EN-US>BD7QC</span><span style='font-family:
+宋体;&quot;Times New Roman&quot;'>、</span><span
+lang=EN-US>KA8MAV</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>、</span><span lang=EN-US>KB9BVN</span><span
+style='font-family:宋体;"Times New Roman"'>、</span><span lang=EN-US>BD4OS</span><span style='font-family:
+宋体;&quot;Times New Roman&quot;'>、</span><span
+lang=EN-US>BD5HAG</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>、</span><span lang=EN-US>BA1FB</span><span
+style='font-family:宋体;"Times New Roman"'>、</span><span lang=EN-US>BA1KA</span><span style='font-family:
+宋体;&quot;Times New Roman&quot;'>、</span><span
+lang=EN-US>BG4ACW</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>、</span><span lang=EN-US>BA6AA</span><span
+style='font-family:宋体;"Times New Roman"'>、</span><span lang=EN-US>BG6ABO</span><span
+style='font-family:宋体;"Times New Roman"'>、</span><span lang=EN-US>BG5-1-12810</span><span
+style='font-family:宋体;"Times New Roman"'>、史聃、刘兴昌等，在此表示深深的谢意！</span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>附</span><span
+lang=EN-US>1</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>：作者联系方法</span></font></p>
+  <p><font face="楷体_GB2312"><span lang=EN-US>230027 </span><span
+style='font-family:宋体;"Times New Roman"'>安徽合肥中国科技大学西区</span><span lang=EN-US>6-610</span><span
+style='font-family:宋体;"Times New Roman"'>室</span> <span style='font-family:宋体;"Times New Roman";"Times New Roman"'>荣新华</span><span
+lang=EN-US>/BD6CR</span></font></p>
+  <p><font face="楷体_GB2312">E-mail: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <a
+href="mailto:rong@mail.ustc.edu.cn"><span style='color:black;text-decoration:
+none;text-underline:none'>rong@mail.ustc.edu.cn</span></a></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>皮鞋主页</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span><span
+style='color:black'><a href="http://mail.ustc.edu.cn/~rong/pixie/"><span
+style='color:black;text-decoration:none;text-underline:none'>http://mail.ustc.edu.cn/~rong/pixie/</span></a></span></font></p>
+  <p><font face="楷体_GB2312"><span lang=EN-US>QRP</span><span
+style='font-family:宋体;"Times New Roman"'>论坛</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </span><span
+style='color:black'><a
+href="http://www.hellocq.net/forum/forumdisplay.php?s=&amp;forumid=8"><span
+style='color:black;text-decoration:none;text-underline:none'>http://www.hellocq.net/forum/forumdisplay.php?s=&amp;forumid=8</span></a></span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>附</span><span
+lang=EN-US>2</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>：套件供应信息</span></font></p>
+  <p><font face="楷体_GB2312"><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>安徽省无线电运动协会供应套件。包括机壳</span><span
+lang=EN-US>80</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>米波段套件（赠送</span><span lang=EN-US>40</span><span
+style='font-family:宋体;"Times New Roman"'>米波段改频电感电容与详细资料）</span><span lang=EN-US>30</span><span
+style='font-family:宋体;"Times New Roman"'>元，学生</span><span lang=EN-US>25</span><span style='font-family:
+宋体;&quot;Times New Roman&quot;'>元。邮费包装费每次</span><span
+lang=EN-US>5</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>元。请通过邮局汇款，写清自己的姓名地址邮编，在汇款附言栏写明数量。汇款地址：</span><span
+lang=EN-US>230021</span><span style='font-family:宋体;
+&quot;Times New Roman&quot;'>安徽合肥合裕路</span><span lang=EN-US>1247</span><span
+style='font-family:宋体;"Times New Roman"'>号美菱公司技术服务中心</span> <span style='font-family:宋体;"Times New Roman";"Times New Roman"'>李强</span><span
+lang=EN-US>/BD6CB</span></font></p>
+</div>
+</body>
+</html>

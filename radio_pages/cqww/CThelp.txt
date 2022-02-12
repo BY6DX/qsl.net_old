@@ -1,0 +1,198 @@
+                      CT9.37 Help File
+
+Alt Q   QUIT
+<CR>    Log a call/contact
+
+      EDITING FIELDS
+Space   MOVE    to exchange field
+Tab     MOVE    to next field          
+Ctrl D  DELETE  char under cursor      
+Ctrl W  WIPE    everything in field      
+Ctrl F  FORWARD one character         
+Ctrl B  BACK    one character            
+PgUp    SCROLL  back through log       
+PgDn    SCROLL  forward through log 
+Ctrl A  GO TO   beginning of field
+Home    GO TO   beginning of field
+Ctrl E  GO TO   end of field            
+End     GO TO   end of field
+
+Alt A   Display ANNOUNCE window
+Alt H   Display HELP window
+Alt B   Display SCHEDULES window
+Alt M   Display MULTIPLIER check sheet
+Alt =   Display PASS window
+Alt Z   Display ZONE window
+Alt Z   Display STATES window
+Alt Z   Display SECTION window
+Alt R   Display RATE window
+Alt S   Display SUMMARY window
+CtrlF9  Enable/disable  RATE graph
+Alt I   Enable/disable  TALK window
+
+Alt C   Enable/disable COUNTRY window
+Alt K   Enable/disable KEYBOARD mode
+Alt J   Enable/disable TX freq window
+
+Alt D   PASS      a multiplier
+Alt E   SCHEDULE  a qso
+Alt F   TIME      field edit
+Alt G   GAB       send talk msg
+Alt I   Enable/disable  TALK window
+Alt L   QTC       form (WAE)
+Alt N   NOTE      to disk
+Alt O   PACKET    monitor
+Alt T   PACKET    TALK mode
+Alt V   Set (VARY) CW speed
+Alt X   Save log and eXit
+Alt Y   Toggle Run/Mult Station flag
+
+F1      Send: CQ
+F2      Send: Exchange
+F3      Send: QRZ?      
+F4      Send: My Call
+F5      Send: His Call  
+F6      Send: CL?
+F7      Send: ?         
+F8      Check Partials
+F9      Check Call      
+F10     Check Country
+SF10    Check Zone
+
+SF1     Set CQ message
+SF2     Set Exchange message
+SF3     Set QRZ? message
+SF4     Set My Call message
+SF6     Set F6 message
+SF7     Set F7 message
+SF8     Super check partial
+SF9     Set QSO B4 message
+Alt U   Super check partial
+F12     Super check partial
+
+Alt F1   Band down                
+Alt F2   Band up                  
+Ctrl F1  Mode down                
+Ctrl F2  Mode up                  
+Ctrl F3  Toggle RUN/MULT
+Alt F3   Announce DX              
+Alt F4   Grab DX spot             
+Alt F5   Steal frequency
+Alt F7   Send QSO B4
+Alt F8   Clear QSO
+F11      Clear QSO
+Alt F9   Speed down 2 WPM          
+Alt F10  Speed  up  2 WPM
+
+Ins Send: F5 & F2
++  Send:  F3 & Log a call/contact
+Ctrl C:   Stop Sending
+Esc:      Stop sending 
+Quit      Save log and quit            
+
+   File Outputs
+
+WRITELOG      Write  all files
+WRITEDUPE     Write .DUP file
+WRITEMULT     Write .MUL file
+WRITESUM      Write .SUM file
+AK1AFORMAT    Write .ASC file
+BREAKDOWN     Write .BRK file
+DUPESHEET     Write .DUP file
+RMDUPES       Write NEW.BIN w/ no dupes
+WRITEARRL     Write CALL.LOG file
+
+   Log Saving Functions
+
+SAVELOG       Save to A:\name.SAV
+AUTOSAVE      SAVELOG each hour
+NOAUTOSAVE    Disable AUTOSAVE
+
+   CW Functions
+
+CWABBREV      Enable CW abbrevs for #'s
+NOCWABBREV    Disable CW abbrevs for #'s
+SOUND         Enable CW sidetone
+NOSOUND       Disable CW sidetone 
+WORKDUPE      Work dupes
+NOWORKDUPE    Answer dupes with QSO B4
+Ctrl T        Key the transmitter (CW)
+TUNE          Key the transmitter (CW)
+
+   Printer Functions
+
+COMPRESS      Enable compressed print
+NOCOMPRESS    Disable compressed print
+PRINTMULT     Print MULT checksheet
+
+   Post Contest Functions
+
+FILLTIMES     Interpolate times
+SETDATE       Set program date
+POSTCONTEST   Enable POST CONTEST mode
+NOPOSTCONTEST Disable POST CONTEST mode
+QSLMODE       Enable QSL mode
+NOQSLMODE     Disable QSL MODE
+PRINT         Send QSL labels to printer
+NOPRINT       Send QSL labels to file
+
+   Multiop
+
+RUN           Make RUN station      
+MULT          Make MULTIPLIER station
+RUN1          Make Stn1 in M2 category
+RUN2          Make Stn2 in M2 category
+
+   DVP
+
+DVP           Open DVP edit window
+ONAIR         Enable PTT and mic
+OFFAIR        Disable PTT and mic
+PTT           Enable PTT to radio
+NOPTT         Disable PTT to radio
+BACKCOPY      Enable backcopy mode
+NOBACKCOPY    Disable backcopy mode
+PAUSE         Set pause before serial #
+Ctrl R        Record immediate to TMP
+Ctrl P        Playback TMP (headset only)
+Alt  P        Playback TMP to radio
+Alt -         Playback QSO
+Alt 0         Save last 5 seconds
+Alt 9         Save last 10 seconds
+Alt 8         Save last 15 seconds
+Alt 7         Save last 20 seconds
+Alt 6         Save last 30 seconds
+Shift F1      Record CQ
+Shift F2      Record Exchange
+Shift F3      Record QRZ message
+Shift F4      Record your own call
+Shift F6      Record F6 message
+Shift F7      Record F7 message 
+F1            Play CQ
+F2            Play Exchange
+F3            Play QRZ message
+F4            Play your own call
+F5            Play his call
+F6            Play F6 message
+F7            Play F7 message
+Ctrl F4       Toggle send serial
+Ctrl F5       Toggle send call
+
+   General
+
+TXPWR         Set tx pwr in ARRL DX
+HELP          Display this HELP window
+MEMLEFT       Display QSO's left
+DRSI          Enable DRSI TNC
+NODRSI        Disable DRSI TNC
+QUIT          Save log and QUIT
+SETUP         Enable com setup screen
+TUNE          Key the TX to tune up
+OPON          Log a new operator onto CT
+ON            Start an on period
+OFF           Start an off period
+BEEP          Enable audible indicators
+NOBEEP        Disable audible indicators
+OFFTHRESH     Set offtime threshold
+RPT           Enable CQ repeat function
+NORPT         Disable CQ repeat function

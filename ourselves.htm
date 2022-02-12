@@ -1,0 +1,176 @@
+<html>
+
+<head>
+
+<title>关于我们</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<script language="JavaScript">
+<!--
+<!--
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+
+}
+
+MM_reloadPage(true);
+
+// -->
+
+
+
+function MM_timelinePlay(tmLnName, myID) { //v1.2
+
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,propNum,theObj,firstTime=false;
+
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+
+  tmLn = document.MM_Time[tmLnName];
+
+  if (myID == null) { myID = ++tmLn.ID; firstTime=true;}//if new call, incr ID
+
+  if (myID == tmLn.ID) { //if Im newest
+
+    setTimeout('MM_timelinePlay("'+tmLnName+'",'+myID+')',tmLn.delay);
+
+    fNew = ++tmLn.curFrame;
+
+    for (i=0; i<tmLn.length; i++) {
+
+      sprite = tmLn[i];
+
+      if (sprite.charAt(0) == 's') {
+
+        if (sprite.obj) {
+
+          numKeyFr = sprite.keyFrames.length; firstKeyFr = sprite.keyFrames[0];
+
+          if (fNew >= firstKeyFr && fNew <= sprite.keyFrames[numKeyFr-1]) {//in range
+
+            keyFrm=1;
+
+            for (j=0; j<sprite.values.length; j++) {
+
+              props = sprite.values[j]; 
+
+              if (numKeyFr != props.length) {
+
+                if (props.prop2 == null) sprite.obj[props.prop] = props[fNew-firstKeyFr];
+
+                else        sprite.obj[props.prop2][props.prop] = props[fNew-firstKeyFr];
+
+              } else {
+
+                while (keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]) keyFrm++;
+
+                if (firstTime || fNew==sprite.keyFrames[keyFrm-1]) {
+
+                  if (props.prop2 == null) sprite.obj[props.prop] = props[keyFrm-1];
+
+                  else        sprite.obj[props.prop2][props.prop] = props[keyFrm-1];
+
+        } } } } }
+
+      } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+
+      if (fNew > tmLn.lastFrame) tmLn.ID = 0;
+
+  } }
+
+}
+
+function MM_initTimelines() { //v4.0
+    //MM_initTimelines() Copyright 1997 Macromedia, Inc. All rights reserved.
+    var ns = navigator.appName == "Netscape";
+    var ns4 = (ns && parseInt(navigator.appVersion) == 4);
+    var ns5 = (ns && parseInt(navigator.appVersion) > 4);
+    document.MM_Time = new Array(1);
+    document.MM_Time[0] = new Array(1);
+    document.MM_Time["Timeline1"] = document.MM_Time[0];
+    document.MM_Time[0].MM_Name = "Timeline1";
+    document.MM_Time[0].fps = 15;
+    document.MM_Time[0][0] = new String("sprite");
+    document.MM_Time[0][0].slot = 1;
+    if (ns4)
+        document.MM_Time[0][0].obj = document["Layer1"];
+    else if (ns5)
+        document.MM_Time[0][0].obj = document.getElementById("Layer1");
+    else
+        document.MM_Time[0][0].obj = document.all ? document.all["Layer1"] : null;
+    document.MM_Time[0][0].keyFrames = new Array(1, 90);
+    document.MM_Time[0][0].values = new Array(3);
+    if (ns5)
+        document.MM_Time[0][0].values[0] = new Array("7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "7px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px", "6px");
+    else
+        document.MM_Time[0][0].values[0] = new Array(7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6);
+    document.MM_Time[0][0].values[0].prop = "left";
+    if (ns5)
+        document.MM_Time[0][0].values[1] = new Array("10px", "16px", "21px", "27px", "32px", "38px", "44px", "49px", "55px", "60px", "66px", "72px", "77px", "83px", "88px", "94px", "100px", "105px", "111px", "116px", "122px", "128px", "133px", "139px", "144px", "150px", "155px", "161px", "167px", "172px", "178px", "183px", "189px", "195px", "200px", "206px", "211px", "217px", "223px", "228px", "234px", "239px", "245px", "251px", "256px", "262px", "267px", "273px", "279px", "284px", "290px", "295px", "301px", "307px", "312px", "318px", "323px", "329px", "335px", "340px", "346px", "351px", "357px", "363px", "368px", "374px", "379px", "385px", "390px", "396px", "402px", "407px", "413px", "418px", "424px", "430px", "435px", "441px", "446px", "452px", "458px", "463px", "469px", "474px", "480px", "486px", "491px", "497px", "502px", "508px");
+    else
+        document.MM_Time[0][0].values[1] = new Array(10,16,21,27,32,38,44,49,55,60,66,72,77,83,88,94,100,105,111,116,122,128,133,139,144,150,155,161,167,172,178,183,189,195,200,206,211,217,223,228,234,239,245,251,256,262,267,273,279,284,290,295,301,307,312,318,323,329,335,340,346,351,357,363,368,374,379,385,390,396,402,407,413,418,424,430,435,441,446,452,458,463,469,474,480,486,491,497,502,508);
+    document.MM_Time[0][0].values[1].prop = "top";
+    if (!ns4) {
+        document.MM_Time[0][0].values[0].prop2 = "style";
+        document.MM_Time[0][0].values[1].prop2 = "style";
+    }
+    if (ns5)
+        document.MM_Time[0][0].values[2] = new Array("512px", "506px", "500px", "494px", "489px", "483px", "477px", "472px", "466px", "460px", "455px", "449px", "443px", "438px", "432px", "426px", "421px", "415px", "409px", "404px", "398px", "392px", "387px", "381px", "375px", "370px", "364px", "358px", "353px", "347px", "341px", "336px", "330px", "324px", "319px", "313px", "307px", "302px", "296px", "290px", "285px", "279px", "273px", "268px", "262px", "256px", "250px", "245px", "239px", "233px", "228px", "222px", "216px", "211px", "205px", "199px", "194px", "188px", "182px", "177px", "171px", "165px", "160px", "154px", "148px", "143px", "137px", "131px", "126px", "120px", "114px", "109px", "103px", "97px", "92px", "86px", "80px", "75px", "69px", "63px", "58px", "52px", "46px", "41px", "35px", "29px", "24px", "18px", "12px", "7px");
+    else
+        document.MM_Time[0][0].values[2] = new Array(512,506,500,494,489,483,477,472,466,460,455,449,443,438,432,426,421,415,409,404,398,392,387,381,375,370,364,358,353,347,341,336,330,324,319,313,307,302,296,290,285,279,273,268,262,256,250,245,239,233,228,222,216,211,205,199,194,188,182,177,171,165,160,154,148,143,137,131,126,120,114,109,103,97,92,86,80,75,69,63,58,52,46,41,35,29,24,18,12,7);
+    document.MM_Time[0][0].values[2].prop = "height";
+    if (!ns4)
+        document.MM_Time[0][0].values[2].prop2 = "style";
+    document.MM_Time[0].lastFrame = 90;
+    for (i=0; i<document.MM_Time.length; i++) {
+        document.MM_Time[i].ID = null;
+        document.MM_Time[i].curFrame = 0;
+        document.MM_Time[i].delay = 1000/document.MM_Time[i].fps;
+    }
+}
+//-->
+</script>
+
+</head>
+
+
+
+<body bgcolor="#F4FEFF" text="#000000" onLoad="MM_timelinePlay('Timeline1')">
+
+<div id="Layer2" style="position:absolute; left:377px; top:20px; width:140px; height:68px; z-index:2"><img src="image/information.gif" width="96" height="39"></div>
+
+<div id="Layer3" style="position:absolute; left:66px; top:468px; width:35px; height:39px; z-index:3"><a href="mailto:radio@ustc.edu.cn"><img src="image/mail.gif" width="35" height="42" border="0"></a></div>
+
+<div id="Layer1" style="position:absolute; left:7px; top:10px; width:525px; height:512px; z-index:4; background-color: f4feff; layer-background-color: f4feff; border: 1px none #000000"></div>
+
+<p>&nbsp;</p>
+
+<p><font face="楷体_GB2312"><b><font size="4" color="#FF3300">指导老师</font></b></font>：　　<font face="仿宋_GB2312" color="#0000FF">刘粉山</font><font face="仿宋_GB2312">　　<font face="幼圆">负责总管实验室事务</font></font><font face="仿宋_GB2312">　</font></p>
+
+<p><font size="4"><b><font face="楷体_GB2312" color="ff3300">骨干人员</font></b></font>：　　<font face="仿宋_GB2312" color="#0000FF">李　哲</font>　　<font face="幼圆">电台台长，主要负责电台事务及网络维护</font></p>
+
+<p>　　　　　　　　<font face="仿宋_GB2312" color="#0000FF">江　晓</font>　　<font face="幼圆">主要负责数据通信，测向队技术指导</font></p>
+
+<p>　　　　　　　　<font face="仿宋_GB2312" color="#0000FF">周　润、赵立超</font>　　<font face="幼圆">主要负责电子制作</font></p>
+<p> 　　　　　　　　<font face="仿宋_GB2312" color="#0000FF">陈高鹏、李振文　　<font face="幼圆" color="#000000">主要负责测向队的组织</font></font><font face="仿宋_GB2312" color="#000000">　　　　　　　　</font></p>
+<p><font face="幼圆" color="#000000"> <font face="仿宋_GB2312">　　　　　　　　<font color="#0000ff">马艳林、姚海涛</font>　　<font face="幼圆">各项活动的总组织者</font></font></font><font face="仿宋_GB2312" color="#000000">　　　　　　　　</font></p>
+<p>&nbsp;</p>
+
+<p><font face="黑体">我们的地址是中国科学技术大学西区电三楼721。</font></p>
+
+<p><font face="黑体">电话（Tel）：86－551－3601312</font></p>
+
+<p><font face="黑体">E-mail：　　<a href="mailto:radio@ustc.edu.cn">radio@ustc.edu.cn</a></font></p>
+
+</body>
+
+</html>
+

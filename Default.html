@@ -1,0 +1,189 @@
+<HTML>
+
+<HEAD>
+<meta name="GENERATOR" content="RealProducer G2">
+<meta name="rnpagelayout" content="pop-up">
+<meta name="rnserverpath" content="D:\Documents and Settings\radio\桌面\">
+<meta name="rnmediafile" content="mediadev.rm">
+<meta name="rnmetafile" content="mediadev.ram">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<TITLE>radio</TITLE>
+<script language="JavaScript">
+<!--
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_showHideLayers() { //v3.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) if ((obj=MM_findObj(args[i]))!=null) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+
+function MM_jumpMenuGo(selName,targ,restore){ //v3.0
+  var selObj = MM_findObj(selName); if (selObj) MM_jumpMenu(targ,selObj,restore);
+}
+
+function MM_timelinePlay(tmLnName, myID) { //v1.2
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,propNum,theObj,firstTime=false;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (myID == null) { myID = ++tmLn.ID; firstTime=true;}//if new call, incr ID
+  if (myID == tmLn.ID) { //if Im newest
+    setTimeout('MM_timelinePlay("'+tmLnName+'",'+myID+')',tmLn.delay);
+    fNew = ++tmLn.curFrame;
+    for (i=0; i<tmLn.length; i++) {
+      sprite = tmLn[i];
+      if (sprite.charAt(0) == 's') {
+        if (sprite.obj) {
+          numKeyFr = sprite.keyFrames.length; firstKeyFr = sprite.keyFrames[0];
+          if (fNew >= firstKeyFr && fNew <= sprite.keyFrames[numKeyFr-1]) {//in range
+            keyFrm=1;
+            for (j=0; j<sprite.values.length; j++) {
+              props = sprite.values[j]; 
+              if (numKeyFr != props.length) {
+                if (props.prop2 == null) sprite.obj[props.prop] = props[fNew-firstKeyFr];
+                else        sprite.obj[props.prop2][props.prop] = props[fNew-firstKeyFr];
+              } else {
+                while (keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]) keyFrm++;
+                if (firstTime || fNew==sprite.keyFrames[keyFrm-1]) {
+                  if (props.prop2 == null) sprite.obj[props.prop] = props[keyFrm-1];
+                  else        sprite.obj[props.prop2][props.prop] = props[keyFrm-1];
+        } } } } }
+      } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+      if (fNew > tmLn.lastFrame) tmLn.ID = 0;
+  } }
+}
+
+function MM_timelineGoto(tmLnName, fNew, numGotos) { //v2.0
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,lastKeyFr,propNum,theObj;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (numGotos != null)
+    if (tmLn.gotoCount == null) tmLn.gotoCount = 1;
+    else if (tmLn.gotoCount++ >= numGotos) {tmLn.gotoCount=0; return}
+  jmpFwd = (fNew > tmLn.curFrame);
+  for (i = 0; i < tmLn.length; i++) {
+    sprite = (jmpFwd)? tmLn[i] : tmLn[(tmLn.length-1)-i]; //count bkwds if jumping back
+    if (sprite.charAt(0) == "s") {
+      numKeyFr = sprite.keyFrames.length;
+      firstKeyFr = sprite.keyFrames[0];
+      lastKeyFr = sprite.keyFrames[numKeyFr - 1];
+      if ((jmpFwd && fNew<firstKeyFr) || (!jmpFwd && lastKeyFr<fNew)) continue; //skip if untouchd
+      for (keyFrm=1; keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]; keyFrm++);
+      for (j=0; j<sprite.values.length; j++) {
+        props = sprite.values[j];
+        if (numKeyFr == props.length) propNum = keyFrm-1 //keyframes only
+        else propNum = Math.min(Math.max(0,fNew-firstKeyFr),props.length-1); //or keep in legal range
+        if (sprite.obj != null) {
+          if (props.prop2 == null) sprite.obj[props.prop] = props[propNum];
+          else        sprite.obj[props.prop2][props.prop] = props[propNum];
+      } }
+    } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+  }
+  tmLn.curFrame = fNew;
+  if (tmLn.ID == 0) eval('MM_timelinePlay(tmLnName)');
+}
+
+function MM_initTimelines() { //v4.0
+    //MM_initTimelines() Copyright 1997 Macromedia, Inc. All rights reserved.
+    var ns = navigator.appName == "Netscape";
+    var ns4 = (ns && parseInt(navigator.appVersion) == 4);
+    var ns5 = (ns && parseInt(navigator.appVersion) > 4);
+    document.MM_Time = new Array(1);
+    document.MM_Time[0] = new Array(1);
+    document.MM_Time["Timeline1"] = document.MM_Time[0];
+    document.MM_Time[0].MM_Name = "Timeline1";
+    document.MM_Time[0].fps = 10;
+    document.MM_Time[0][0] = new String("behavior");
+    document.MM_Time[0][0].frame = 283;
+    document.MM_Time[0][0].value = "MM_timelineGoto('Timeline1','1')";
+    document.MM_Time[0].lastFrame = 283;
+    for (i=0; i<document.MM_Time.length; i++) {
+        document.MM_Time[i].ID = null;
+        document.MM_Time[i].curFrame = 0;
+        document.MM_Time[i].delay = 1000/document.MM_Time[i].fps;
+    }
+}
+//-->
+</script>
+</HEAD>
+
+<BODY BGCOLOR="#F4FEFF" vlink="#CC0099" link="#0A25E2" onLoad="MM_timelinePlay('Timeline1')" alink="#FF0000">
+<div id="Layer1" style="position:absolute; left:214px; top:31px; width:442px; height:291px; z-index:1"> 
+  <p>&nbsp;</p>
+  <p><font face="隶书" size="5" color="#FF0000">新闻头条：</font></p>
+  <p><font face="幼圆" size="6" color="#FF0000"><b> <font face="宋体">　</font><a href="activity_pages/assc.htm" target="_blank">业余无线电协会会员大会</a></b></font></p>
+  <p>　　<b><font face="幼圆" size="4"><a href="activity_pages/for-new.htm" target="_blank"><font face="楷体_GB2312" size="5">校业余无线电协会招新了！</font></a></font></b></p>
+  <p><b><font face="仿宋_GB2312" size="4">　 <a href="activity_pages/satellite.htm" target="_blank"><font size="5" face="楷体_GB2312">业余卫星通信小项目</font></a></font></b></p>
+  <p><font size="5" face="楷体_GB2312"><b>　 <a href="fox_pages/qingdao.htm" target="_blank">青岛之行</a></b></font></p>
+  <p><b><a href="fox_pages/qingdao.htm"><font face="幼圆" size="4"> <br>
+    </font></a><font face="幼圆" size="4"> </font></b> </p>
+  </div>
+<div id="Layer2" style="position:absolute; left:10px; top:347px; width:583px; height:271px; z-index:2"> 
+  <p><font color="#FF0000"><b><font face="幼圆">精华：</font></b></font></p>
+  <p><font face="楷体_GB2312"><a href="fox_pages/MyHainan.htm" target="_blank">我的海南之行</a></font></p>
+  <p><a href="./radio_pages/OurYagi.htm" target="_blank"><font face="楷体_GB2312">架设我们的八木天线</font></a></p>
+  <p><font face="楷体_GB2312"><a href="radio_pages/oneyear.htm" target="_blank">科大业余电台一周年</a></font></p>
+  <p><font face="楷体_GB2312"><a href="files/bd6cr_graduate.htm" target="_blank">BD6CR的毕业将是BY6DX的一个巨大的损失</a> 
+    </font></p>
+  <p><font face="楷体_GB2312"><a href="files/bd6cr.htm" target="_blank">BD6CR的无线电之路</a></font></p>
+  <p><font face="楷体_GB2312"><a href="files/228.htm" target="_blank">二·二八会议</a></font></p>
+  <p><font face="楷体_GB2312" size="3"><a href="radio_pages/zju_radio.htm" target="_blank">浙江大学的业余电台活动</a> 
+    　　　</font><font face="楷体_GB2312">　　　　 　　　　</font></p>
+  <p><font face="楷体_GB2312"><a href="activity_pages/fox_match.htm" target="_blank" onMouseOver="MM_showHideLayers('Layer9','','show')" onMouseOut="MM_showHideLayers('Layer9','','hide')"></a></font></p>
+</div>
+<div id="Layer10" style="position:absolute; left:1px; top:32px; width:207px; height:238px; z-index:10"><img src="image/main.jpg" width="197" height="287"></div>
+<div id="Layer11" style="position:absolute; left:5px; top:633px; width:602px; height:34px; z-index:11"><font size="-1" face="幼圆" color="#000000"><b>若您对我们的工作有什么建议，欢迎您<a href="mailto:radio@ustc.edu.cn">联系我们</a>，我们的电子邮件是:<a href="mailto:radio@ustc.edu.cn">radio@ustc.edu.cn</a></b></font></div>
+<div id="Layer12" style="position:absolute; left:329px; top:3px; width:105px; height:36px; z-index:12"><img src="image/new.gif" width="112" height="40"></div>
+<div id="Layer13" style="position:absolute; left:7px; top:650px; width:602px; height:65px; z-index:13"> 
+  <p><font face="幼圆"><b><font color="#F79C04"> 友情链接：</font></b></font> 
+    <select name="menu1" onChange="MM_jumpMenu('parent',this,0)">
+      <option value="http://202.38.64.2" selected>中国科学技术大学</option>
+      <option value="http://www.crsa.org">中国无线电运动协会</option>
+      <option value="http://www.ac6v.com">AC6V的个人网页</option>
+      <option value="http://www.qsl.net">qsl.net</option>
+      <option value="http://www.qth.net">qth.net</option>
+      <option value="http://www.qrz.com">qrz.com</option>
+      <option value="http://www.qsl.net/bd6cr">BD6CR</option>
+      <option value="http://www.qsl.net/by4ajt">上海交通大学集体业余电台</option>
+      <option value="http://www.arrl.org">美国业余无线电中继联盟</option>
+      <option value="http://www.cnham.net">火腿之家</option>
+      <option value="http://www.qsl.net/by2hit">哈尔滨工业大学集体业余电台</option>
+      <option value="http://www.qsl.net/ba4eg">BA4EG</option>
+      <option value="http://www.qsl.net/ba1fb">BA1FB</option>
+      <option value="http://www.qsl.net/bd5hag">BD5HAG</option>
+    </select>
+    <input type="button" name="Button1" value="Go" onClick="MM_jumpMenuGo('menu1','parent',0)">
+  </p>
+  <form name="form2">
+  </form>
+  <form name="form1">
+  </form>
+  <p>&nbsp;</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</BODY>
+</HTML>

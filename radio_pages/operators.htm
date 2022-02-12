@@ -1,0 +1,160 @@
+<html>
+<head>
+<title>操作人员</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<script language="JavaScript">
+<!--
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+
+function MM_timelinePlay(tmLnName, myID) { //v1.2
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,propNum,theObj,firstTime=false;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (myID == null) { myID = ++tmLn.ID; firstTime=true;}//if new call, incr ID
+  if (myID == tmLn.ID) { //if Im newest
+    setTimeout('MM_timelinePlay("'+tmLnName+'",'+myID+')',tmLn.delay);
+    fNew = ++tmLn.curFrame;
+    for (i=0; i<tmLn.length; i++) {
+      sprite = tmLn[i];
+      if (sprite.charAt(0) == 's') {
+        if (sprite.obj) {
+          numKeyFr = sprite.keyFrames.length; firstKeyFr = sprite.keyFrames[0];
+          if (fNew >= firstKeyFr && fNew <= sprite.keyFrames[numKeyFr-1]) {//in range
+            keyFrm=1;
+            for (j=0; j<sprite.values.length; j++) {
+              props = sprite.values[j]; 
+              if (numKeyFr != props.length) {
+                if (props.prop2 == null) sprite.obj[props.prop] = props[fNew-firstKeyFr];
+                else        sprite.obj[props.prop2][props.prop] = props[fNew-firstKeyFr];
+              } else {
+                while (keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]) keyFrm++;
+                if (firstTime || fNew==sprite.keyFrames[keyFrm-1]) {
+                  if (props.prop2 == null) sprite.obj[props.prop] = props[keyFrm-1];
+                  else        sprite.obj[props.prop2][props.prop] = props[keyFrm-1];
+        } } } } }
+      } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+      if (fNew > tmLn.lastFrame) tmLn.ID = 0;
+  } }
+}
+
+function MM_initTimelines() { //v4.0
+    //MM_initTimelines() Copyright 1997 Macromedia, Inc. All rights reserved.
+    var ns = navigator.appName == "Netscape";
+    var ns4 = (ns && parseInt(navigator.appVersion) == 4);
+    var ns5 = (ns && parseInt(navigator.appVersion) > 4);
+    document.MM_Time = new Array(1);
+    document.MM_Time[0] = new Array(2);
+    document.MM_Time["Timeline1"] = document.MM_Time[0];
+    document.MM_Time[0].MM_Name = "Timeline1";
+    document.MM_Time[0].fps = 25;
+    document.MM_Time[0][0] = new String("sprite");
+    document.MM_Time[0][0].slot = 1;
+    if (ns4)
+        document.MM_Time[0][0].obj = document["Layer1"];
+    else if (ns5)
+        document.MM_Time[0][0].obj = document.getElementById("Layer1");
+    else
+        document.MM_Time[0][0].obj = document.all ? document.all["Layer1"] : null;
+    document.MM_Time[0][0].keyFrames = new Array(1, 60);
+    document.MM_Time[0][0].values = new Array(4);
+    if (ns5)
+        document.MM_Time[0][0].values[0] = new Array("0px", "0px", "1px", "1px", "1px", "1px", "2px", "2px", "2px", "2px", "3px", "3px", "3px", "3px", "4px", "4px", "4px", "4px", "5px", "5px", "5px", "5px", "6px", "6px", "6px", "6px", "7px", "7px", "7px", "7px", "8px", "8px", "8px", "8px", "9px", "9px", "9px", "9px", "10px", "10px", "10px", "10px", "11px", "11px", "11px", "11px", "12px", "12px", "12px", "12px", "13px", "13px", "13px", "13px", "14px", "14px", "14px", "14px", "15px", "15px");
+    else
+        document.MM_Time[0][0].values[0] = new Array(0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9,10,10,10,10,11,11,11,11,12,12,12,12,13,13,13,13,14,14,14,14,15,15);
+    document.MM_Time[0][0].values[0].prop = "left";
+    if (ns5)
+        document.MM_Time[0][0].values[1] = new Array("33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px", "33px");
+    else
+        document.MM_Time[0][0].values[1] = new Array(33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33);
+    document.MM_Time[0][0].values[1].prop = "top";
+    if (!ns4) {
+        document.MM_Time[0][0].values[0].prop2 = "style";
+        document.MM_Time[0][0].values[1].prop2 = "style";
+    }
+    if (ns5)
+        document.MM_Time[0][0].values[2] = new Array("183px", "179px", "176px", "173px", "170px", "167px", "164px", "161px", "158px", "155px", "152px", "149px", "146px", "143px", "140px", "137px", "134px", "131px", "128px", "125px", "122px", "119px", "116px", "113px", "110px", "107px", "104px", "101px", "98px", "95px", "91px", "88px", "85px", "82px", "79px", "76px", "73px", "70px", "67px", "64px", "61px", "58px", "55px", "52px", "49px", "46px", "43px", "40px", "37px", "34px", "31px", "28px", "25px", "22px", "19px", "16px", "13px", "10px", "7px", "4px");
+    else
+        document.MM_Time[0][0].values[2] = new Array(183,179,176,173,170,167,164,161,158,155,152,149,146,143,140,137,134,131,128,125,122,119,116,113,110,107,104,101,98,95,91,88,85,82,79,76,73,70,67,64,61,58,55,52,49,46,43,40,37,34,31,28,25,22,19,16,13,10,7,4);
+    document.MM_Time[0][0].values[2].prop = "width";
+    if (!ns4)
+        document.MM_Time[0][0].values[2].prop2 = "style";
+    if (ns5)
+        document.MM_Time[0][0].values[3] = new Array("362px", "360px", "358px", "357px", "355px", "353px", "352px", "350px", "349px", "347px", "345px", "344px", "342px", "341px", "339px", "337px", "336px", "334px", "333px", "331px", "329px", "328px", "326px", "324px", "323px", "321px", "320px", "318px", "316px", "315px", "313px", "312px", "310px", "308px", "307px", "305px", "304px", "302px", "300px", "299px", "297px", "295px", "294px", "292px", "291px", "289px", "287px", "286px", "284px", "283px", "281px", "279px", "278px", "276px", "275px", "273px", "271px", "270px", "268px", "267px");
+    else
+        document.MM_Time[0][0].values[3] = new Array(362,360,358,357,355,353,352,350,349,347,345,344,342,341,339,337,336,334,333,331,329,328,326,324,323,321,320,318,316,315,313,312,310,308,307,305,304,302,300,299,297,295,294,292,291,289,287,286,284,283,281,279,278,276,275,273,271,270,268,267);
+    document.MM_Time[0][0].values[3].prop = "height";
+    if (!ns4)
+        document.MM_Time[0][0].values[3].prop2 = "style";
+    document.MM_Time[0][1] = new String("sprite");
+    document.MM_Time[0][1].slot = 2;
+    if (ns4)
+        document.MM_Time[0][1].obj = document["Layer3"];
+    else if (ns5)
+        document.MM_Time[0][1].obj = document.getElementById("Layer3");
+    else
+        document.MM_Time[0][1].obj = document.all ? document.all["Layer3"] : null;
+    document.MM_Time[0][1].keyFrames = new Array(1, 60);
+    document.MM_Time[0][1].values = new Array(4);
+    if (ns5)
+        document.MM_Time[0][1].values[0] = new Array("183px", "188px", "193px", "198px", "203px", "208px", "213px", "218px", "223px", "228px", "233px", "238px", "243px", "248px", "253px", "259px", "264px", "269px", "274px", "279px", "284px", "289px", "294px", "299px", "304px", "309px", "314px", "319px", "324px", "329px", "334px", "339px", "344px", "349px", "354px", "359px", "364px", "369px", "374px", "379px", "384px", "389px", "394px", "399px", "404px", "410px", "415px", "420px", "425px", "430px", "435px", "440px", "445px", "450px", "455px", "460px", "465px", "470px", "475px", "480px");
+    else
+        document.MM_Time[0][1].values[0] = new Array(183,188,193,198,203,208,213,218,223,228,233,238,243,248,253,259,264,269,274,279,284,289,294,299,304,309,314,319,324,329,334,339,344,349,354,359,364,369,374,379,384,389,394,399,404,410,415,420,425,430,435,440,445,450,455,460,465,470,475,480);
+    document.MM_Time[0][1].values[0].prop = "left";
+    if (ns5)
+        document.MM_Time[0][1].values[1] = new Array("32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px", "32px");
+    else
+        document.MM_Time[0][1].values[1] = new Array(32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32);
+    document.MM_Time[0][1].values[1].prop = "top";
+    if (!ns4) {
+        document.MM_Time[0][1].values[0].prop2 = "style";
+        document.MM_Time[0][1].values[1].prop2 = "style";
+    }
+    if (ns5)
+        document.MM_Time[0][1].values[2] = new Array("433px", "425px", "418px", "411px", "404px", "397px", "390px", "383px", "376px", "368px", "361px", "354px", "347px", "340px", "333px", "326px", "319px", "311px", "304px", "297px", "290px", "283px", "276px", "269px", "262px", "255px", "247px", "240px", "233px", "226px", "219px", "212px", "205px", "198px", "190px", "183px", "176px", "169px", "162px", "155px", "148px", "141px", "134px", "126px", "119px", "112px", "105px", "98px", "91px", "84px", "77px", "69px", "62px", "55px", "48px", "41px", "34px", "27px", "20px", "13px");
+    else
+        document.MM_Time[0][1].values[2] = new Array(433,425,418,411,404,397,390,383,376,368,361,354,347,340,333,326,319,311,304,297,290,283,276,269,262,255,247,240,233,226,219,212,205,198,190,183,176,169,162,155,148,141,134,126,119,112,105,98,91,84,77,69,62,55,48,41,34,27,20,13);
+    document.MM_Time[0][1].values[2].prop = "width";
+    if (!ns4)
+        document.MM_Time[0][1].values[2].prop2 = "style";
+    if (ns5)
+        document.MM_Time[0][1].values[3] = new Array("361px", "359px", "358px", "356px", "355px", "354px", "352px", "351px", "350px", "348px", "347px", "345px", "344px", "343px", "341px", "340px", "339px", "337px", "336px", "334px", "333px", "332px", "330px", "329px", "328px", "326px", "325px", "323px", "322px", "321px", "319px", "318px", "317px", "315px", "314px", "312px", "311px", "310px", "308px", "307px", "306px", "304px", "303px", "301px", "300px", "299px", "297px", "296px", "295px", "293px", "292px", "290px", "289px", "288px", "286px", "285px", "284px", "282px", "281px", "280px");
+    else
+        document.MM_Time[0][1].values[3] = new Array(361,359,358,356,355,354,352,351,350,348,347,345,344,343,341,340,339,337,336,334,333,332,330,329,328,326,325,323,322,321,319,318,317,315,314,312,311,310,308,307,306,304,303,301,300,299,297,296,295,293,292,290,289,288,286,285,284,282,281,280);
+    document.MM_Time[0][1].values[3].prop = "height";
+    if (!ns4)
+        document.MM_Time[0][1].values[3].prop2 = "style";
+    document.MM_Time[0].lastFrame = 60;
+    for (i=0; i<document.MM_Time.length; i++) {
+        document.MM_Time[i].ID = null;
+        document.MM_Time[i].curFrame = 0;
+        document.MM_Time[i].delay = 1000/document.MM_Time[i].fps;
+    }
+}
+//-->
+</script>
+</head>
+
+<body bgcolor="F4FEFF" text="#000000" onLoad="MM_timelinePlay('Timeline1')">
+<div id="Layer2" style="position:absolute; left:19px; top:35px; width:498px; height:340px; z-index:1"> 
+  <p><font face="幼圆"><b><font color="#FF0000">中国学技术大学业余无线电台的操作人员有：</font></b></font></p>
+  <p><font face="楷体_GB2312">　荣新华（ADAM,台长，二级操作员，BD6CR）</font></p>
+  <p><font face="楷体_GB2312">　李　哲（JACK,三级操作员，BG6ABP）</font></p>
+  <p><font face="楷体_GB2312">　江　晓（JIM,四级操作员）</font></p>
+  <p><font face="楷体_GB2312">　周　润（三级操作员，BG6ABI）</font></p>
+  <p><font face="楷体_GB2312">　杨旭东(BILL)</font></p>
+  <p><font face="楷体_GB2312">　姜国伦</font></p>
+  <p><font face="楷体_GB2312"> 　新加入的成员有：马艳林、李震文、郭佳琪、周婧婧、黄萍莉。</font></p>
+  </div>
+<div id="Layer1" style="position:absolute; left:0px; top:33px; width:183px; height:362px; z-index:2; background-color: f4feff; layer-background-color: f4feff; border: 1px none #000000"></div>
+<div id="Layer3" style="position:absolute; left:183px; top:32px; width:433px; height:361px; z-index:3; background-color: f4feff; layer-background-color: f4feff; border: 1px none #000000"></div>
+<p>&nbsp;</p>
+</body>
+</html>

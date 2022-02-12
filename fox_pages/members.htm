@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>测向队成员</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<script language="JavaScript">
+<!--
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+
+function MM_timelinePlay(tmLnName, myID) { //v1.2
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,propNum,theObj,firstTime=false;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (myID == null) { myID = ++tmLn.ID; firstTime=true;}//if new call, incr ID
+  if (myID == tmLn.ID) { //if Im newest
+    setTimeout('MM_timelinePlay("'+tmLnName+'",'+myID+')',tmLn.delay);
+    fNew = ++tmLn.curFrame;
+    for (i=0; i<tmLn.length; i++) {
+      sprite = tmLn[i];
+      if (sprite.charAt(0) == 's') {
+        if (sprite.obj) {
+          numKeyFr = sprite.keyFrames.length; firstKeyFr = sprite.keyFrames[0];
+          if (fNew >= firstKeyFr && fNew <= sprite.keyFrames[numKeyFr-1]) {//in range
+            keyFrm=1;
+            for (j=0; j<sprite.values.length; j++) {
+              props = sprite.values[j]; 
+              if (numKeyFr != props.length) {
+                if (props.prop2 == null) sprite.obj[props.prop] = props[fNew-firstKeyFr];
+                else        sprite.obj[props.prop2][props.prop] = props[fNew-firstKeyFr];
+              } else {
+                while (keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]) keyFrm++;
+                if (firstTime || fNew==sprite.keyFrames[keyFrm-1]) {
+                  if (props.prop2 == null) sprite.obj[props.prop] = props[keyFrm-1];
+                  else        sprite.obj[props.prop2][props.prop] = props[keyFrm-1];
+        } } } } }
+      } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+      if (fNew > tmLn.lastFrame) tmLn.ID = 0;
+  } }
+}
+
+function MM_initTimelines() { //v4.0
+    //MM_initTimelines() Copyright 1997 Macromedia, Inc. All rights reserved.
+    var ns = navigator.appName == "Netscape";
+    var ns4 = (ns && parseInt(navigator.appVersion) == 4);
+    var ns5 = (ns && parseInt(navigator.appVersion) > 4);
+    document.MM_Time = new Array(1);
+    document.MM_Time[0] = new Array(1);
+    document.MM_Time["Timeline1"] = document.MM_Time[0];
+    document.MM_Time[0].MM_Name = "Timeline1";
+    document.MM_Time[0].fps = 15;
+    document.MM_Time[0][0] = new String("sprite");
+    document.MM_Time[0][0].slot = 1;
+    if (ns4)
+        document.MM_Time[0][0].obj = document["Layer1"];
+    else if (ns5)
+        document.MM_Time[0][0].obj = document.getElementById("Layer1");
+    else
+        document.MM_Time[0][0].obj = document.all ? document.all["Layer1"] : null;
+    document.MM_Time[0][0].keyFrames = new Array(1, 62);
+    document.MM_Time[0][0].values = new Array(4);
+    if (ns5)
+        document.MM_Time[0][0].values[0] = new Array("0px", "12px", "24px", "36px", "48px", "60px", "72px", "84px", "96px", "108px", "120px", "132px", "144px", "156px", "168px", "180px", "191px", "203px", "215px", "227px", "239px", "251px", "263px", "275px", "287px", "299px", "311px", "323px", "335px", "347px", "359px", "371px", "383px", "395px", "407px", "419px", "431px", "443px", "455px", "467px", "479px", "491px", "503px", "515px", "527px", "539px", "550px", "562px", "574px", "586px", "598px", "610px", "622px", "634px", "646px", "658px", "670px", "682px", "694px", "706px", "718px", "730px");
+    else
+        document.MM_Time[0][0].values[0] = new Array(0,12,24,36,48,60,72,84,96,108,120,132,144,156,168,180,191,203,215,227,239,251,263,275,287,299,311,323,335,347,359,371,383,395,407,419,431,443,455,467,479,491,503,515,527,539,550,562,574,586,598,610,622,634,646,658,670,682,694,706,718,730);
+    document.MM_Time[0][0].values[0].prop = "left";
+    if (ns5)
+        document.MM_Time[0][0].values[1] = new Array("0px", "4px", "7px", "11px", "15px", "19px", "22px", "26px", "30px", "33px", "37px", "41px", "45px", "48px", "52px", "56px", "60px", "63px", "67px", "71px", "74px", "78px", "82px", "86px", "89px", "93px", "97px", "100px", "104px", "108px", "112px", "115px", "119px", "123px", "127px", "130px", "134px", "138px", "141px", "145px", "149px", "153px", "156px", "160px", "164px", "167px", "171px", "175px", "179px", "182px", "186px", "190px", "194px", "197px", "201px", "205px", "208px", "212px", "216px", "220px", "223px", "227px");
+    else
+        document.MM_Time[0][0].values[1] = new Array(0,4,7,11,15,19,22,26,30,33,37,41,45,48,52,56,60,63,67,71,74,78,82,86,89,93,97,100,104,108,112,115,119,123,127,130,134,138,141,145,149,153,156,160,164,167,171,175,179,182,186,190,194,197,201,205,208,212,216,220,223,227);
+    document.MM_Time[0][0].values[1].prop = "top";
+    if (!ns4) {
+        document.MM_Time[0][0].values[0].prop2 = "style";
+        document.MM_Time[0][0].values[1].prop2 = "style";
+    }
+    if (ns5)
+        document.MM_Time[0][0].values[2] = new Array("768px", "756px", "744px", "732px", "720px", "708px", "696px", "684px", "672px", "661px", "649px", "637px", "625px", "613px", "601px", "589px", "577px", "565px", "554px", "542px", "530px", "518px", "506px", "494px", "482px", "470px", "458px", "447px", "435px", "423px", "411px", "399px", "387px", "375px", "363px", "352px", "340px", "328px", "316px", "304px", "292px", "280px", "268px", "256px", "245px", "233px", "221px", "209px", "197px", "185px", "173px", "161px", "149px", "138px", "126px", "114px", "102px", "90px", "78px", "66px", "54px", "43px");
+    else
+        document.MM_Time[0][0].values[2] = new Array(768,756,744,732,720,708,696,684,672,661,649,637,625,613,601,589,577,565,554,542,530,518,506,494,482,470,458,447,435,423,411,399,387,375,363,352,340,328,316,304,292,280,268,256,245,233,221,209,197,185,173,161,149,138,126,114,102,90,78,66,54,43);
+    document.MM_Time[0][0].values[2].prop = "width";
+    if (!ns4)
+        document.MM_Time[0][0].values[2].prop2 = "style";
+    if (ns5)
+        document.MM_Time[0][0].values[3] = new Array("241px", "237px", "233px", "230px", "226px", "223px", "219px", "216px", "212px", "208px", "205px", "201px", "198px", "194px", "191px", "187px", "184px", "180px", "176px", "173px", "169px", "166px", "162px", "159px", "155px", "152px", "148px", "144px", "141px", "137px", "134px", "130px", "127px", "123px", "120px", "116px", "112px", "109px", "105px", "102px", "98px", "95px", "91px", "88px", "84px", "80px", "77px", "73px", "70px", "66px", "63px", "59px", "56px", "52px", "48px", "45px", "41px", "38px", "34px", "31px", "27px", "24px");
+    else
+        document.MM_Time[0][0].values[3] = new Array(241,237,233,230,226,223,219,216,212,208,205,201,198,194,191,187,184,180,176,173,169,166,162,159,155,152,148,144,141,137,134,130,127,123,120,116,112,109,105,102,98,95,91,88,84,80,77,73,70,66,63,59,56,52,48,45,41,38,34,31,27,24);
+    document.MM_Time[0][0].values[3].prop = "height";
+    if (!ns4)
+        document.MM_Time[0][0].values[3].prop2 = "style";
+    document.MM_Time[0].lastFrame = 62;
+    for (i=0; i<document.MM_Time.length; i++) {
+        document.MM_Time[i].ID = null;
+        document.MM_Time[i].curFrame = 0;
+        document.MM_Time[i].delay = 1000/document.MM_Time[i].fps;
+    }
+}
+//-->
+</script>
+</head>
+
+<body bgcolor="#F4feff" text="#000000" onLoad="MM_timelinePlay('Timeline1')">
+<div id="Layer1" style="position:absolute; left:0px; top:0px; width:768px; height:241px; z-index:1; background-color: f4feff; layer-background-color: f4feff; border: 1px none #000000"></div>
+<p><font face="幼圆"><b><font color="#FF0000">教练</font></b></font>：<font face="楷体_GB2312">张　育(原安徽省测向队教练）</font></p>
+<p><font face="楷体_GB2312">　　　江　晓</font></p>
+<p><font face="幼圆"><b><font color="#FF0000">队员</font></b></font>：<font face="楷体_GB2312">江晓、李伟、叶暧强、曾繁伟、方芳、袁琴（以上队员均参加了2001年在重庆举行的全国测向锦标赛）</font></p>
+<p><font face="楷体_GB2312">　　　杨旭东、郭佳琪、刘春雷、程晔增、姚甲、肖迎春、孔祥林、张镇宁、黄琦、戴莉莉、冯艳</font></p>
+<p><font face="楷体_GB2312">　　　参加了2002年在海南举行的全国测向锦标赛的队员有：江晓、李震文、郭佳琪、周润、秦勉、马艳林、黄萍莉、陈高鹏。</font></p>
+<p><font face="楷体_GB2312">　　　</font></p>
+</body>
+</html>
